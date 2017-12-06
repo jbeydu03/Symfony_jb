@@ -1,0 +1,9 @@
+jb_public_homepage:
+    path:     /
+    defaults: 
+      _controller: JBPublicBundle:Public:index
+      
+jb_public_contact:
+    path:     /contact
+    defaults: 
+      _controller: JBPublicBundle:Public:contact

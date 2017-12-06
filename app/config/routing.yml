@@ -1,3 +1,4 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+jb_public:
+    resource: "@JBPublicBundle/Resources/config/routing.yml"
+    prefix:   /
+

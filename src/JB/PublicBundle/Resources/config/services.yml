@@ -1,0 +1,4 @@
+services:
+#    jb_public.example:
+#        class: JB\PublicBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
