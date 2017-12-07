@@ -29,7 +29,7 @@ class Coordonnee
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="telephone", type="integer", nullable=true)
      */
     private $telephone;
 

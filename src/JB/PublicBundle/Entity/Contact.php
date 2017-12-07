@@ -3,6 +3,7 @@
 namespace JB\PublicBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -13,8 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Contact
 {
     /**
-     * @ORM\ManyToOne(targetEntity="JB\PublicBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="JB\PublicBundle\Entity\User", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\Valid()
      */
     private $user;
     
@@ -31,6 +33,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="message", type="text")
+     * @Assert\Length(min=20, minMessage="Le message doit faire au moins 20 caractères.")
      */
     private $message;
 
@@ -38,6 +41,7 @@ class Contact
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
     

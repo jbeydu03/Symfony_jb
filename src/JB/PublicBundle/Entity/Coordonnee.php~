@@ -29,7 +29,7 @@ class Coordonnee
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer")
+     * @ORM\Column(name="telephone", type="integer", nullable=true)
      */
     private $telephone;
 
@@ -98,5 +98,28 @@ class Coordonnee
     {
         return $this->email;
     }
-}
 
+    /**
+     * Set adresse
+     *
+     * @param \JB\PublicBundle\Entity\Adresse $adresse
+     *
+     * @return Coordonnee
+     */
+    public function setAdresse(\JB\PublicBundle\Entity\Adresse $adresse = null)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return \JB\PublicBundle\Entity\Adresse
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+}

@@ -6,3 +6,9 @@ Création du layout principal
 Création des vues index et contact
 
 Commit 2 : création du bundle JB/PublicBundle - routes et vues 
+
+Création des entités : contact, user, civilite, coordonnee, adresse
+Création des formulaires associés
+Création du formulaire contact, avec contrainte de validation et insertion en BDD.
+
+Commit 3 : création des entités, formulaires et validation pour le formulaire de contact.

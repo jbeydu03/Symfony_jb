@@ -5,6 +5,8 @@ namespace JB\PublicBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserType extends AbstractType
 {
@@ -14,9 +16,15 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('civilite')
-            ->add('nom')
-            ->add('prenom');
+            ->add('civilite',EntityType::class, array(
+                'class'=> 'JBPublicBundle:Civilite',
+                'choice_label' => 'genre',
+                'multiple'     => false,
+                'expanded'     => false,
+                'label' => 'Civilité'
+            ))
+            ->add('nom',TextType::class)
+            ->add('prenom',TextType::class,array('label' => 'Prénom'));
     }
     
     /**

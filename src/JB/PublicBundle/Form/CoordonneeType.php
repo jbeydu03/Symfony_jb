@@ -5,6 +5,8 @@ namespace JB\PublicBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class CoordonneeType extends AbstractType
 {
@@ -14,8 +16,8 @@ class CoordonneeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('telephone')
-            ->add('email');
+            ->add('telephone',NumberType::class)
+            ->add('email', EmailType::class);
 
     }
     

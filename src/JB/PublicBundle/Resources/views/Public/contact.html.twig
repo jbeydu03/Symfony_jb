@@ -7,9 +7,16 @@
 
   
 <h1>Formulaire de contact</h1>
+   <div >
+                  {# On affiche tous les messages flash dont le nom est « info » #}
+                  {% for message in app.session.flashbag.get('notice') %}
+                    <p class="flash">{{ message }}</p>
+                  {% endfor %}
+    </div>
     <section>
         <div class="container">
             <div class="col-lg-offset-3 col-lg-6">
+               
                 <div class="well">
                   {{ form(form) }}
                 </div>

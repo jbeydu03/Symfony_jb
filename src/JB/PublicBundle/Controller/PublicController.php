@@ -21,7 +21,33 @@ class PublicController extends Controller
         $contact = new Contact();
         $form = $this->get('form.factory')->create(ContactFormulaireType::class, $contact);
         
-        // Si la requête est en POST
+
+        if ($request->isMethod('POST')) 
+        {
+            $form->handleRequest($request);
+            
+            if ($form->isValid()) 
+            {
+               $em = $this->getDoctrine()->getManager();
+               $em->persist($contact);
+               $em->flush();
+            //   $message = \Swift_Message::newInstance()
+            //    ->setCharset('utf-8')
+            //    ->setContentType('text/html')
+            //    ->setSubject('Nouvelle demande de contact')
+            //    ->setFrom('jbblanc.pro@gmail.com')
+            //    ->setTo('jbblanc.pro@gmail.com')
+            //    ->setBody($contact->getMessage(),'text/html');
+            //    $this->get('mailer')->send($message);
+            // On redirige vers la page de visualisation de l'annonce nouvellement créée 
+
+                $request->getSession()->getFlashBag()->add('notice', 'Merci. Votre message a bien été transmis.');
+            // On redirige vers la page de visualisation de l'annonce nouvellement créée
+            return $this->redirectToRoute('jb_public_contact');
+            }
+            
+        }
+   
         
         return $this->render('JBPublicBundle:Public:contact.html.twig', array(
             'form' => $form->createView(),

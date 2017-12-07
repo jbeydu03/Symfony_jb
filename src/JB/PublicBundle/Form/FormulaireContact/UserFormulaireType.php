@@ -16,7 +16,7 @@ class UserFormulaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('coordonnee', CoordonneeFormulaireType::class);
+            ->add('coordonnee', CoordonneeFormulaireType::class,array('label' => false));
     }
     
     public function getParent()
